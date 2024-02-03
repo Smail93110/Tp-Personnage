@@ -33,7 +33,6 @@ public class jeuPersonnage {
 
         }
 
-
         // if (UnMagicien == 0) {
 
 
@@ -45,6 +44,15 @@ public class jeuPersonnage {
         // UnMagicien.Attaque(UnSorcier, 40);
         System.out.println("Atak La vie du magicien est " + UnMagicien.LaVie());
         System.out.println("Atak La vie du sorcier est " + UnSorcier.LaVie());
+
+
+
+        if (UnSorcier.LaVie() <= 0) {
+            System.out.println("Le sorcier est mort. Le magicien gagne !");
+        } else {
+            System.out.println("Le magicien est mort. Le sorcier gagne !");
+        }
+
 
     }
 }
