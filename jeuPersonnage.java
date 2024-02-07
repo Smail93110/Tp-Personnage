@@ -1,39 +1,75 @@
 import Personnage.*;
+import java.util.Scanner;
+
 
 public class jeuPersonnage {
     public static void main(String args[]) {
-        Personnage UnSorcier = new Personnage("Sorcier", 70);
 
-        Personnage UnMagicien = new Personnage("Magicien", 100);
+        Scanner scanner = new Scanner(System.in);
 
-        while (UnSorcier.LaVie() >0 && UnMagicien.LaVie() > 0) {
+        System.out.println("Entrez le nom du premier personnage : ");
+        String nomPerso1 = scanner.nextLine();
+
+        System.out.println("Entrez le nom du deuxième personnage : ");
+        String nomPerso2 = scanner.nextLine();
+
+
+
+        Personnage perso1 = new Personnage(nomPerso1, 70);
+
+        Personnage perso2 = new Personnage(nomPerso2, 100);
+
+
+
+        
+        System.out.println("Le nom du premier personnage = " + perso1.LeNom());
+        System.out.println("Le nom du deuxieme personnage = " + perso2.LeNom());
+
+
+        System.out.println("la vie de "  +  nomPerso1 +  " est à "  + perso1.LaVie());
+
+        System.out.println("La vie du " + nomPerso2 +  "  est à "  + perso2.LaVie());
+
+
+        // System.out.println("La vie de " + nomPerso1 + " augmente de  10 " + perso1.LaVie());
+        perso1.AugmenterVie(10);
+
+        System.out.println("Apres la vie de " + nomPerso1 + "  est passer à  " + perso1.LaVie());
+
+        while (perso1.LaVie() > 0 && perso2.LaVie() > 0) {
         System.out.println("le jeu continue");
 
-        System.out.println("La vie du sorcier est " + UnSorcier.LaVie());
+        // System.out.println("la vie de "  +  nomPerso1 +  " est à "  + perso1.LaVie());
 
-        System.out.println("La vie du magicien est " + UnMagicien.LaVie());
+        // System.out.println("La vie du " + nomPerso2 +  "  est à "  + perso2.LaVie());
 
-        // System.out.println("Le nom du sorcier = " + UnSorcier.LeNom());
-        // System.out.println("Le nom du magicien = " + UnMagicien.LeNom());
 
-        // System.out.println("La vie du sorcier est " + UnSorcier.LaVie());
-        // UnSorcier.AugmenterVie(10);
-
-        // System.out.println("Apres la vie du sorcier est " + UnSorcier.LaVie());
+      
 
 
         double random = Math.random();
-        if(random == 0){
-            System.out.println("le magicien attaque le sorcier ...");
-            UnMagicien.Attaque(UnSorcier, 40);
+        int degats  = (int) (Math.random()* 50 ) +1;
+        if(random  == 30){
+            System.out.println("le" + nomPerso1 + "attaque" + nomPerso2  );
+            perso1.Attaque(perso2, degats);
 
         } else{
-            System.out.println("le sorcier attaque le magicien ...");
-           UnSorcier.Attaque(UnMagicien, 40);
+            System.out.println(" le "  + nomPerso2 + " attaque " +nomPerso1 );
+
+           perso2.Attaque(perso1, degats);
 
         }
 
-        // if (UnMagicien == 0) {
+    }
+
+
+
+
+    System.out.println("la vie de "  +  nomPerso1 +  " est à "  + perso1.LaVie());
+
+    System.out.println("La vie du " + nomPerso2 +  "  est à "  + perso2.LaVie());
+
+        // if (perso2 == 0) {
 
 
         //     // System.out.println(vie);
@@ -41,19 +77,19 @@ public class jeuPersonnage {
         // }
 
         // System.out.println("le magicien attaque le sorcier ...");
-        // UnMagicien.Attaque(UnSorcier, 40);
-        System.out.println("Atak La vie du magicien est " + UnMagicien.LaVie());
-        System.out.println("Atak La vie du sorcier est " + UnSorcier.LaVie());
+        // perso2.Attaque(perso1, 40);
+
+        System.out.println("la vie de "  +  nomPerso1 +  " est à "  + perso1.LaVie());
+
+        System.out.println("La vie du " + nomPerso2 +  "  est à "  + perso2.LaVie());
 
 
-
-        if (UnSorcier.LaVie() <= 0) {
-            System.out.println("Le sorcier est mort. Le magicien gagne !");
+        if (perso1.LaVie() <= 0) {
+            System.out.println("Le " + nomPerso2 + "gagne");
         } else {
-            System.out.println("Le magicien est mort. Le sorcier gagne !");
+            System.out.println(" Le " + nomPerso1 + " gagne " );
         }
 
+}
+}
 
-    }
-}
-}

@@ -31,7 +31,7 @@ public class Personnage {
 
 
  public void Attaque(Personnage asssailant, int dommage) {
-        asssailant.vie =  asssailant.vie - dommage  /2 ;  
+        asssailant.vie =  asssailant.vie - dommage  / 2 ;  
         this.vie = this.vie - dommage;  
 
     }
